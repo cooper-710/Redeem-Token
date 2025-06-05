@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enter Token</title>
+  <style>
+    body {
+      background: #111;
+      color: white;
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      width: 300px;
+      margin-bottom: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <h1>Enter Access Token</h1>
+  <input id="tokenInput" type="text" placeholder="Paste your token here" />
+  <button onclick="submitToken()">Submit</button>
+
+  <script>
+    function submitToken() {
+      const token = document.getElementById("tokenInput").value.trim();
+      if (token) {
+        window.location.href = `https://sequencebiolabanalytics.com/?token=${encodeURIComponent(token)}`;
+      } else {
+        alert("Please enter a valid token.");
+      }
+    }
+  </script>
+</body>
+</html>
