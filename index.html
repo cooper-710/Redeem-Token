@@ -2,46 +2,54 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enter Token</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Redeem Token</title>
   <style>
     body {
-      background: #111;
+      background-color: black;
       color: white;
       font-family: Arial, sans-serif;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
+      text-align: center;
+      padding-top: 10%;
     }
-    input {
-      padding: 0.5rem;
-      font-size: 1rem;
+
+    input[type="text"] {
+      padding: 10px;
       width: 300px;
-      margin-bottom: 1rem;
+      font-size: 16px;
     }
+
     button {
-      padding: 0.5rem 1rem;
-      font-size: 1rem;
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: white;
+      color: black;
+      border: none;
       cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e6e6e6;
     }
   </style>
 </head>
 <body>
-  <h1>Enter Access Token</h1>
-  <input id="tokenInput" type="text" placeholder="Paste your token here" />
-  <button onclick="submitToken()">Submit</button>
+  <h1>Enter Access Code</h1>
+  <form id="tokenForm">
+    <input type="text" id="tokenInput" placeholder="Paste your token here" required />
+    <br>
+    <button type="submit">Submit</button>
+  </form>
 
   <script>
-    function submitToken() {
+    document.getElementById("tokenForm").addEventListener("submit", function (e) {
+      e.preventDefault();
       const token = document.getElementById("tokenInput").value.trim();
       if (token) {
-        window.location.href = `https://sequencebiolabanalytics.com/?token=${encodeURIComponent(token)}`;
-      } else {
-        alert("Please enter a valid token.");
+        window.location.href = `https://sequencebiolabanalytics.com/?token=${token}`;
       }
-    }
+    });
   </script>
 </body>
 </html>
